@@ -1,0 +1,20 @@
+name: agv_simulation_setup
+# root: ~/agv_ws # You can uncomment this if your commands need a specific working directory, though absolute paths in commands are safer.
+
+windows:
+  - gazebo_simulation:
+      layout: tiled # Arranges panes; other options: even-horizontal, main-vertical, etc.
+      panes:
+        - turtlebot_simulation:
+            - echo "Launching Turtlebot3 Simulation..."
+            - export TURTLEBOT3_MODEL=burger
+            - ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+        - keyboard_teleop:
+            - echo "Waiting for simulation to start..."
+            - sleep 5
+            - echo "Starting keyboard teleop..."
+            - export TURTLEBOT3_MODEL=burger
+            - ros2 run turtlebot3_teleop teleop_keyboard
+        - cors_mesh_server:
+            - echo "Starting CORS-enabled HTTP server for meshes on port 8000 from /opt/ros/humble/share/ ..."
+            - python3 /home/rosuser/cors_mesh_server.py 8000 /opt/ros/humble/share/ 
