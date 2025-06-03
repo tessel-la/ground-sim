@@ -45,7 +45,7 @@ This simulation environment is designed to facilitate the development and testin
 4.  **Launch the simulation using tmuxinator:**
     Inside the container, run:
     ```bash
-    tmuxinator start agv_simulation_setup
+    tmuxinator start turtlebot_simulation_setup
     ```
 
 This will launch the TurtleBot3 Gazebo simulation and any other configured components.

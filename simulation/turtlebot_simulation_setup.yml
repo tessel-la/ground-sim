@@ -1,4 +1,4 @@
-name: agv_simulation_setup
+name: turtlebot_simulation_setup
 # root: ~/agv_ws # You can uncomment this if your commands need a specific working directory, though absolute paths in commands are safer.
 
 windows:
